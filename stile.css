@@ -363,11 +363,11 @@ ul {
 
         .video-section h2 {
             font-size: 3rem;
-    color: #d32f2f;
-    font-family: 'Corinthia', cursive;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    margin: 20px 0;
+            color: #d32f2f;
+            font-family: 'Corinthia', cursive;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin: 20px 0;
         }
 
         .video-container {
