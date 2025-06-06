@@ -168,17 +168,17 @@ ul {
 
 /*RICETTA*/
 .recipe-section {
-    padding: 30px 20px;
+    padding: 15px;
     background-color: #f4f4f9;
 }
 
 .recipe-section h2 {
-    text-align: center;
     font-size: 3rem;
-    color: #d32f2f;
-    margin: auto;
-    font-family: 'Corinthia', cursive;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            color: #d32f2f;
+            font-family: 'Corinthia', cursive;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin: 20px 0;
 }
 
 .recipe-subtitle {
@@ -352,7 +352,7 @@ ul {
 
 /* VIDEO SECTION */
         .video-section {
-            padding: 60px 20px;
+            padding: 15px;
             background:#f4f4f9;
             min-height: 100vh;
             display: flex;
