@@ -136,40 +136,73 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //VIDEO
 
-   document.addEventListener("DOMContentLoaded", function () {
-  const video = document.getElementById("myVideo");
-  const button = document.getElementById("toggleButton");
-  let isPausedManually = false;
+  document.addEventListener("DOMContentLoaded", function () {
+            const videoOverlay = document.getElementById("videoOverlay");
+            const driveVideo = document.getElementById("driveVideo");
+            const toggleButton = document.getElementById("toggleButton");
+            const playIcon = document.getElementById("playIcon");
+            const videoSection = document.querySelector("#video");
+            
+            let isVideoVisible = false;
+            let hasAnimated = false;
 
-  // ▶ Scroll: play/pausa automatica
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !isPausedManually) {
-        video.play();
-        button.textContent = "⏸ Stop";
-      } else if (!isPausedManually) {
-        video.pause();
-      }
-    });
-  }, { threshold: 0.5 });
+            // Animazione quando la sezione entra in vista
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasAnimated) {
+                        videoSection.classList.add("animate-in");
+                        hasAnimated = true;
+                    }
+                });
+            }, { threshold: 0.3 });
 
-  observer.observe(document.querySelector("#video"));
+            observer.observe(videoSection);
 
-  // ▶ Pulsante: play/pausa manuale
-  button.addEventListener("click", function () {
-    if (video.paused) {
-      video.play();
-      button.textContent = "⏸ Stop";
-      isPausedManually = false;
-    } else {
-      video.pause();
-      button.textContent = "▶ Start";
-      isPausedManually = true;
-    }
-  });
-});
+            // Funzione per mostrare/nascondere il video Google Drive
+            function toggleVideo() {
+                const iframe = document.getElementById("driveVideo");
+                
+                if (!isVideoVisible) {
+                    // Carica e mostra il video Google Drive
+                    iframe.src = "https://drive.google.com/file/d/1m3dDiD7N52VXdbEhpCwTQxTyoZIQlnH-/preview";
+                    videoOverlay.style.display = "none";
+                    iframe.style.display = "block";
+                    toggleButton.textContent = "❌ Chiudi Video";
+                    toggleButton.style.background = "#95a5a6";
+                    isVideoVisible = true;
+                } else {
+                    // Nasconde il video e rimuove il src per fermarlo
+                    iframe.src = "";
+                    videoOverlay.style.display = "flex";
+                    iframe.style.display = "none";
+                    toggleButton.textContent = "🎥 Guarda Video";
+                    toggleButton.style.background = "#e74c3c";
+                    isVideoVisible = false;
+                }
+            }
 
+            // Event listeners
+            videoOverlay.addEventListener("click", toggleVideo);
+            toggleButton.addEventListener("click", toggleVideo);
 
+            // Effetto hover sul play button
+            const playButton = document.querySelector(".play-button");
+            playButton.addEventListener("mouseenter", function() {
+                playIcon.textContent = "🎬";
+            });
+            
+            playButton.addEventListener("mouseleave", function() {
+                playIcon.textContent = "▶";
+            });
+
+            // Apertura in nuova finestra come fallback
+            function openInNewWindow() {
+                window.open("https://drive.google.com/file/d/1m3dDiD7N52VXdbEhpCwTQxTyoZIQlnH-/view", "_blank");
+            }
+
+            // Aggiungi listener per aprire in nuova finestra (doppio click)
+            videoOverlay.addEventListener("dblclick", openInNewWindow);
+        });
 
 
 /*document.addEventListener("DOMContentLoaded", function () {

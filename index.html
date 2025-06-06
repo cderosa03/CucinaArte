@@ -208,18 +208,37 @@
         </div>
     </section>
 
-    <section id="video" class="video-section" >
-  <h2>Video</h2>
-  <div class="video-container">
-    <video id="myVideo"  loop>
-      <source src="images/VIDEO COMPLETA.mp4" type="video/mp4" />
-      Il tuo browser non supporta il tag video.
-    </video>
-    <button id="toggleButton" class="control-button">
-      ⏸ Stop
-    </button>
-  </div>
-</section>
+    <section id="video" class="video-section">
+        <h2></h2> Video </h2>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <!-- Overlay personalizzato -->
+                <div class="video-overlay visible" id="videoOverlay">
+                    <div class="play-button">
+                        <span id="playIcon">▶</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Video Completo </h3>
+                        <p>Clicca per guardare il video direttamente qui</p>
+                        <small style="opacity: 0.6;"></small>
+                    </div>
+                </div>
+                
+                <!-- Google Drive iframe -->
+                <iframe 
+                    id="driveVideo"
+                    src=""
+                    allow="autoplay; fullscreen"
+                    style="display: none;">
+                </iframe>
+            </div>
+            
+            <!-- Pulsante di controllo -->
+            <button id="toggleButton" class="control-button">
+                 Guarda Video
+            </button>
+        </div>
+    </section>
 
 
     
@@ -272,27 +291,27 @@
         
         <div class="sponsor-grid">
             <div class="sponsor-item">
-                <img class="sponsor-logo" src="/sponsor/Buosi.jpeg" alt="Buosi">
+                <img class="sponsor-logo" src="sponsor/Buosi.jpeg" alt="Buosi">
                 <p class="sponsor-name">Buosi</p>
             </div>
 
             <div class="sponsor-item">
-                <img class="sponsor-logo" src="/sponsor/Caffè del Lago.jpeg" alt="Caffè del Lago">
+                <img class="sponsor-logo" src="sponsor/Caffè del Lago.jpeg" alt="Caffè del Lago">
                 <p class="sponsor-name">Caffè del Lago</p>
             </div>
 
             <div class="sponsor-item">
-                <img class="sponsor-logo" src="/sponsor/De murà.jpeg" alt="De Murà">
+                <img class="sponsor-logo" src="sponsor/De murà.jpeg" alt="De Murà">
                 <p class="sponsor-name">De Murà</p>
             </div>
 
             <div class="sponsor-item">
-                <img class="sponsor-logo" src="/sponsor/Porrini.jpeg" alt="Porrini">
+                <img class="sponsor-logo" src="sponsor/Porrini.jpeg" alt="Porrini">
                 <p class="sponsor-name">Porrini</p>
             </div>
 
             <div class="sponsor-item">
-                <img class="sponsor-logo" src="/sponsor/Particolare.jpeg" alt="Particolare">
+                <img class="sponsor-logo" src="sponsor/Particolare.jpeg" alt="Particolare">
                 <p class="sponsor-name">Particolare</p>
             </div>
         
